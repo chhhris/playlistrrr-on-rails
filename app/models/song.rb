@@ -3,8 +3,7 @@ class Song < ActiveRecord::Base
   belongs_to :artist
   belongs_to :genre
 
-  def youtube
-    YoutubeSearch.search("#{self.artist.name} #{self.name}").first
-  end
-
+  # def youtube
+  #   YoutubeSearch.search("#{self.artist.name} #{self.name}").first
+  # end
 end 

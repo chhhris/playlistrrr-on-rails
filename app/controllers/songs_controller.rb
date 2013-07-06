@@ -1,4 +1,14 @@
 class SongsController < ApplicationController
+
+  def index
+    @songs = Song.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @songs }
+    end
+  end
+
   def create
     @artist = Artist.find(params[:artist_id])
     @song = @artist.songs.create(params[:song])
@@ -21,6 +31,20 @@ class SongsController < ApplicationController
       format.json { render json: @artist }
     end
   end
+
+  def edit
+    @song = Song.find(params[:id])
+  end
+
+  # def destroy
+  #   @song = Song.find(params[:id])
+  #   @song.destroy
+
+  #   respond_to do |format|
+  #     format.html { redirect_to songs_url }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
 end
 

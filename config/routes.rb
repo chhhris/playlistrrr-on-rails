@@ -1,10 +1,17 @@
 PlaylistrrOnRailsV2::Application.routes.draw do
-  resources :artists do
-    resources :songs
-  end
 
-  # creates songs index page
+  resources :artists do
+    resources :songs do
+      resources :genres
+    end
+  end
+  # resources :artists do
+  #   resources :songs 
+  # end
   resources :songs
+  resources :genres
+
+
 
   get "home/index"
   root :to => 'home#index'

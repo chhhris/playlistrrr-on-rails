@@ -3,11 +3,11 @@
 <h3>Share music with anyone, anywhere.</h3> 
 <ul>
   <li>Easily find your favorite music.</li>
-  <li>Search by <%= link_to "ARTIST", artists_path %>, SONG or GENRE.</li>
+  <li>Search by <%= link_to "ARTIST", artists_path %>, <%= link_to "SONG", songs_path %> or  <%= link_to "GENRE", genres_path %>.</li>
   <li>Create and share playlists with ANYONE, no need to sign-up or download a thing.</li>
 </ul>
 <br/>
-<p><strong><< <%= link_to "ARTISTS", artists_path %> >> | << Songs >> | << Genres >></strong></p>
+<p><strong><< <%= link_to "ARTISTS", artists_path %> >> | << <%= link_to "SONG", songs_path %> >> | << <%= link_to "GENRE", genres_path %> >></strong></p>
 <br/>
 <h4>About Playlistrrr</h4>
 <p>Spotify, Rdio, and iTunes won't let you share music with non-members. That's lame.</p>

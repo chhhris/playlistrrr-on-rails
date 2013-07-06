@@ -1,0 +1,16 @@
+<p><a href="/"><< home</a></p>
+
+<h1>GENRES</h1>
+
+<table> 
+
+
+  <% Genre.all.each do |genrestyle| %> 
+  <tr>
+
+    <td><b><%= genrestyle.name %></b></td>
+    <td><%= link_to 'Go >>', genrestyle %></td>
+
+  </tr>
+<% end %>
+</table>

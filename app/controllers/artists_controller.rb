@@ -1,7 +1,5 @@
 class ArtistsController < ApplicationController
   
-
-
   # GET /artists
   # GET /artists.json
   def index
@@ -44,6 +42,7 @@ class ArtistsController < ApplicationController
   # POST /artists.json
   def create
     @artist = Artist.new(params[:artist])
+    @artist.add_songs(params[:songs])
 
     respond_to do |format|
       if @artist.save

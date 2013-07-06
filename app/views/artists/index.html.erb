@@ -6,7 +6,7 @@
 <% @artists.each do |artist| %>
   <tr>
     <td><b><%= artist.name %></b></td>
-    <td><%= link_to 'Go >>', artist %></td>
+    <td><%= link_to 'Go to artist >>', artist %></td>
     <td>| <%= link_to 'Edit', edit_artist_path(artist) %></td>
     <td>| <%= link_to 'Delete', artist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>

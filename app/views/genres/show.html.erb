@@ -1,0 +1,13 @@
+<h1><%= @genre.name %></h1>
+
+<p id="notice"><%= notice %></p>
+
+<ul style="list-style-type: none;">
+<p>Songs // </p>
+  <b><%= render @genre.songs %></b>
+</ul>
+<br/>
+
+
+<%= link_to 'Edit', edit_genre_path(@genre) %> |
+<%= link_to '<< Back', genres_path %>

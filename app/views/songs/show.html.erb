@@ -3,8 +3,7 @@
 <h1><%= @song.name %></h1>
 <ul style="list-style-type: none;">
   <li><h3>by: <%= Artist.find(params[:id])[:name] %> </h3></li>
-
-  <iframe src="http://youtube.com/embed/<%= @song.youtube["video_id"] %>"></iframe>
-
-
 </ul>
+
+<%= link_to 'Edit', edit_song_path(@song) %> |
+<%= link_to '<< Back', songs_path %>

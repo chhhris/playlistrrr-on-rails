@@ -1,14 +1,13 @@
-<%= link_to "<< home", artists_path %>
+<p><a href="/"><< home</a></p>
 
 <h2>Songs</h2>
 <table> 
 
 
-  <% Song.all.each do |s| %> 
+  <% Song.all.each do |single| %> 
   <tr>
-
-    <td><h3><%= s.name %></h3></td>
-    <td><%= link_to 'Go >>', s %></td>
+    <td><b><%= single.name %></b></td>
+    <td><%= link_to 'Go to song >>', single %></td>
 
   </tr>
 <% end %>
