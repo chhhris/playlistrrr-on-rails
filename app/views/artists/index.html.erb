@@ -1,0 +1,18 @@
+<p><a href="/"><< home</a></p>
+
+<h1>ARTISTS</h1>
+
+<table>
+<% @artists.each do |artist| %>
+  <tr>
+    <td><b><%= artist.name %></b></td>
+    <td><%= link_to 'Go >>', artist %></td>
+    <td>| <%= link_to 'Edit', edit_artist_path(artist) %></td>
+    <td>| <%= link_to 'Delete', artist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Add an Artist', new_artist_path %>
