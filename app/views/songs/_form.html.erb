@@ -1,3 +1,5 @@
+<!-- This code doesn't work -->
+
 <%= form_for(@song) do |f| %>
   <% if @song.errors.any? %>
     <div id="error_explanation">
@@ -12,22 +14,20 @@
   <% end %>
 
   <div class="field">
-    <%= @song.label :name %><br />
-    <%= @song.text_field :name %>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
   </div>
 
-  <div class="field">
-    <%= f.label :artist %><br />
-    <%= f.text_field :artist %>
-  </div>
+  <fieldset>
+    <p>
+      <label>Artist Name: </label> <input type="text" name="artist[name]" />
+    </p>
 
-  <div class="field">
-    <%= f.label :genre %><br />
-    <%= f.text_field :genre %>
-  </div>
+    <p>
+      <label>Genre Name: </label> <input type="text" name="songs[][genre]" />
+    </p>
+  </fieldset>
 
-    <div class="actions">
     <%= f.submit %>
-  </div>
 
 <% end %>

@@ -1,3 +1,5 @@
+require 'oembed'
+
 class Song < ActiveRecord::Base
   attr_accessible :name, :artist_id, :genre_id
   belongs_to :artist
@@ -24,5 +26,12 @@ class Song < ActiveRecord::Base
     "#{self.artist.name} - #{self.name} [#{self.genre.name}]"
   end
 
+  def youtube_url
+    id = YoutubeSearch.search("#{self.artist.name} - #{self.name}").first["video_id"]
+    url = "http://www.youtube.com/watch?v=#{id}"
+  end
 
+  def embedcode
+    OEmbed::Providers::Youtube.get(self.youtube_url).html
+  end
 end 

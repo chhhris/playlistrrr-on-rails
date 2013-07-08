@@ -4,7 +4,7 @@
 <h1>SONGS</h1>
 <table> 
 
-  <% @songs.sort { |a,b| a.name <=> b.name }.each do |song| %> 
+  <% @songs.sort { |a,b| a.name <=> b.name }.each do  |song| %> 
   <tr>
     <td><b><%= link_to song.name, song %></b>&nbsp;</td>
     <td>by &nbsp;<b><%= Artist.find_by_id(song.artist_id)[:name] %></b>&nbsp;</td>
