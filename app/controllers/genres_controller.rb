@@ -1,4 +1,14 @@
 class GenresController < ApplicationController
+ 
+  def index
+    @genres = Genre.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @genres }
+    end
+  end  
+
   def create
     @artist = Artist.find(params[:artist_id])
     @genre = @artist.genres.create(params[:genre])

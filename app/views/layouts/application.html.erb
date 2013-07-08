@@ -7,6 +7,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body style="background: #6EFF70;">
+<%= link_to 'home', root_path %> | <%= link_to 'artists', artists_path %> | <%= link_to 'songs', songs_path %> | <%= link_to 'genres', genres_path %>
+<br/>
 
 <%= yield %>
 

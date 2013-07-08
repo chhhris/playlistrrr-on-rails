@@ -1,3 +1,6 @@
+<% if notice %>
+<p id="notice"><%= notice %></p> <% end %>
+
 <h1>Playlistrrr</h1>
 
 <h3>Share music with anyone, anywhere.</h3> 
@@ -9,6 +12,11 @@
 <br/>
 <p><strong><< <%= link_to "ARTISTS", artists_path %> >> | << <%= link_to "SONG", songs_path %> >> | << <%= link_to "GENRE", genres_path %> >></strong></p>
 <br/>
+<< <%= link_to 'Add a Song', new_song_path %> >> << <%= link_to 'Add an Artist', new_artist_path %> >>
+
+
+
+<br/>
 <h4>About Playlistrrr</h4>
 <p>Spotify, Rdio, and iTunes won't let you share music with non-members. That's lame.</p>
-<p>Playlistrrr lets you share music with just a simple, permanent link. All music is streamed via the YouTube open API.</p>
+<p>Playlistrrr lets you share music with just a simple, permanent link. The music is streamed via the YouTube open API.</p>

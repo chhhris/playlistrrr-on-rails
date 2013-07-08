@@ -1,16 +1,14 @@
-<p><a href="/"><< home</a></p>
+<% if notice %>
+<p id="notice"><%= notice %></p> <% end %>
 
 <h1>GENRES</h1>
 
 <table> 
 
 
-  <% Genre.all.each do |genrestyle| %> 
+  <% @genres.each do |genre| %> 
   <tr>
-
-    <td><b><%= genrestyle.name %></b></td>
-    <td><%= link_to 'Go >>', genrestyle %></td>
-
+    <td><b><%= link_to genre.name, genre %></b></td>
   </tr>
 <% end %>
 </table>

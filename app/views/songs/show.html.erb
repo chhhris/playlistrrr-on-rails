@@ -1,9 +1,9 @@
-<%= link_to "<< songs home", songs_path %>
+<% if notice %>
+<p id="notice"><%= notice %></p> <% end %>
 
 <h1><%= @song.name %></h1>
-<ul style="list-style-type: none;">
-  <li><h3>by: <%= Artist.find(params[:id])[:name] %> </h3></li>
-</ul>
 
-<%= link_to 'Edit', edit_song_path(@song) %> |
+
+
+
 <%= link_to '<< Back', songs_path %>

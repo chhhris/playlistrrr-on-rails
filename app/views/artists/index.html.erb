@@ -1,18 +1,13 @@
-<p><a href="/"><< home</a></p>
+<% if notice %>
+<p id="notice"><%= notice %></p> <% end %>
 
 <h1>ARTISTS</h1>
 
 <table>
-<% @artists.each do |artist| %>
+<% @artists.sort { |a,b| a.name <=> b.name }.each do |artist| %>
   <tr>
-    <td><b><%= artist.name %></b></td>
-    <td><%= link_to 'Go to artist >>', artist %></td>
-    <td>| <%= link_to 'Edit', edit_artist_path(artist) %></td>
-    <td>| <%= link_to 'Delete', artist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><b><%= link_to artist.name, artist %></b>&nbsp;</td>
+
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'Add an Artist', new_artist_path %>

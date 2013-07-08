@@ -15,6 +15,7 @@ class SongsController < ApplicationController
     redirect_to artist_path(@artist)
   end
 
+
   def destroy
     @artist = Artist.find(params[:artist_id])
     @songs = @artist.songs.find(params[:id])
@@ -36,19 +37,19 @@ class SongsController < ApplicationController
     @song = Song.find(params[:id])
   end
 
-  # def destroy
-  #   @song = Song.find(params[:id])
-  #   @song.destroy
+  def update
+    @song = Song.find(params[:id])
 
-  #   respond_to do |format|
-  #     format.html { redirect_to songs_url }
-  #     format.json { head :no_content }
-  #   end
-  # end
+    respond_to do |format|
+      if @song.update_attributes(params[:song])
+        format.html { redirect_to @song, notice: 'Song was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @song.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
 end
 
-  # def create
-  #   @artist = @artist.songs.create(params[:songs])
-  #   redirect_to artist_path(@artist)
-  # end
