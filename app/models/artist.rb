@@ -1,7 +1,9 @@
 class Artist < ActiveRecord::Base
   attr_accessible :name, :songs
   validates :name, :presence => true
+  validates_uniqueness_of :name, :case_sensitive => false
   has_many :songs, :dependent => :destroy
+  has_many :genres, :through => :songs
 
   accepts_nested_attributes_for :songs, :allow_destroy => :true,
     :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
@@ -13,14 +15,6 @@ class Artist < ActiveRecord::Base
       s.name = song_hash[:name]
       self.add_song(s)
     end
-  end
-
-  def self.reset_artists
-    reset_all
-  end
-
-  def genres
-    songs.collect{|s| s.genre}.flatten.compact.uniq
   end
 
   def songs_count

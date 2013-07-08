@@ -22,10 +22,6 @@ class Song < ActiveRecord::Base
     genre.songs << self
   end
 
-  def title
-    "#{self.artist.name} - #{self.name} [#{self.genre.name}]"
-  end
-
   def youtube_url
     id = YoutubeSearch.search("#{self.artist.name} - #{self.name}").first["video_id"]
     url = "http://www.youtube.com/watch?v=#{id}"
